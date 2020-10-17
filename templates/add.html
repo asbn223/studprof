@@ -6,15 +6,27 @@
             <div class="left"></div>
             <div class="right">
                 <h2>Add Student</h2>
-                <form action="">
-                    <input type="text" class="field" placeholder="Your Name">
-                    <input type="text" class="field" placeholder="Your Age">
-                    <input type="text" class="field" placeholder="Your Phone">
-                    <input type="email" class="field" placeholder="Your Email">
-                    <button class="btn">Add</button>
+                <form name="form" enctype = "multipart/form-data" action = "{% url 'add' %}" method = "post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+{#                    <input type="text" class="field" placeholder="Your Name" name="name">#}
+{#                    <input type="text" class="field" placeholder="Your Age" name="age">#}
+{#                    <input type="text" class="field" placeholder="Your Phone" name="phone">#}
+{#                    <input type="email" class="field" placeholder="Your Email" name="email">#}
+                    <button class="btn" type="submit">Add</button> <br>
                 </form>
             </div>
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags %}
+                        <script>alert('{{ message }}')</script>
+                    {% endif %} 
+                {% endfor %}
+
+            {% endif %} 
         </div>
     </div>
+
+
 
 {% endblock %}
