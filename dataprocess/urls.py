@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from demo.views import demo,add_person
-from student_profile.views import home, add_student_form, student_profile
+from student_profile.views import home, add_student_form, Students, Student_detail
 
 
 urlpatterns = [
@@ -27,6 +27,7 @@ urlpatterns = [
     path('', home, name="home"),
     # path('add/', forms, name="add"),
     path('add/', add_student_form, name="add"),
-    path('student/', student_profile, name="student_profile"),
+    path('student/', Students.as_view(), name="student_profile"),
+    path('student/<pk>/', Student_detail.as_view(), name="student_detail"),
     # path('demo/script',add_person, name="add_person")
 ] + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

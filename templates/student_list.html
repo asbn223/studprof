@@ -2,8 +2,9 @@
 {% load static %}
 
 {% block content %}
-    {% for student in students %}
-        <div class="profile-box">
+    {% for student in object_list %}
+        <a href="{{ student.get_absolute_url }}">
+            <div class="profile-box">
             <div class="imgBx">
                 <img src="{% static 'img/default_pic.jpg' %}">
             </div>
@@ -16,6 +17,8 @@
                 </h2>
             </div>
          </div>
+        </a>
     {% endfor %}
+
 
 {% endblock %}

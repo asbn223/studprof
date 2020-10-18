@@ -4,6 +4,8 @@ from django.shortcuts import render
 from .forms import StudentForm
 from demo.models import Student
 
+from django.views.generic import ListView, DetailView
+
 
 def home(request):
     return render(request, 'index.html', context={'title': 'Home'})
@@ -36,6 +38,24 @@ def add_student_form(request):
     return render(request, 'add.html', context)
 
 
-def student_profile(request):
+class Students(ListView):
+    template_name = 'student_list.html'
     queryset = Student.objects.all()
-    return render(request, 'student_list.html', context={'title':'Student Profile', 'students': queryset})
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data()
+        context['title'] = 'Students'
+
+        return context
+
+
+class Student_detail(DetailView):
+    template_name = 'student_detail.html'
+    queryset = Student.objects.all()
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data()
+        # print(context['object'].name)
+        context['title'] = context['object'].name
+
+        return context

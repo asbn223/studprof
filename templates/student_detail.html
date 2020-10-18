@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="banner">
+        <div class="context">
+            <div class="context-box">
+                <h2>{{ object.name }}</h2>
+                <p>Age: {{ object.age }}<br>Phone: {{ object.phone }}<br>Email: {{ object.email }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="center">
+            <div class="mobile">
+                <div class="screen">
+                    <img src="{% static 'img/default_pic.jpg' %}" alt="">
+                </div>
+                <div class="home"></div>
+                <div class="inner"></div>
+                <ul class="volume">
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul class="silent">
+                    <li></li>
+                </ul>
+                <ul class="sleep">
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+
+
+{% endblock %}

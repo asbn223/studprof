@@ -158,7 +158,7 @@ label.checkbtn{
 }
 
 /*Profile Page*/
-.box {
+.profile-box {
     position: relative;
     width: 300px;
     height: 300px;
@@ -169,11 +169,11 @@ label.checkbtn{
     transition: 0.5s;
 }
 
-.box:hover {
+.profile-box:hover {
     height: 400px;
 }
 
-.box .imgBx {
+.profile-box .imgBx {
     position: absolute;
     top: 0;
     left: 0;
@@ -183,17 +183,17 @@ label.checkbtn{
     box-sizing: border-box;
 }
 
-.box .imgBx img {
+.profile-box .imgBx img {
     max-width: 100%;
     opacity: 0.1;
     transition: 0.5s;
 }
 
-.box:hover .imgBx img {
+.profile-box:hover .imgBx img {
     opacity: 1;
 }
 
-.box:before {
+.profile-box:before {
     content: '';
     position: absolute;
     top: -2px;
@@ -204,24 +204,24 @@ label.checkbtn{
     z-index: -1;
 }
 
-.box:after {
+.profile-box:after {
     content: '';
     position: absolute;
     top: -2px;
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: #FFF;
+    /*background: #FFF;*/
     z-index: -2;
     /* filter: blur(40px); */
 }
 
-.box:before,
-.box:after {
+.profile-box:before,
+.profile-box:after {
     background-image: linear-gradient(to right bottom, #e11129, #da2c5b, #c44b7e, #a86292, #8e7394, #876f96, #7d6c99, #726a9c, #6559af, #5646c1, #4030d1, #1c0ce0);
 }
 
-.box .content {
+.profile-box .content {
     position: absolute;
     bottom: 0;
     left: 10px;
@@ -236,7 +236,7 @@ label.checkbtn{
     transition: 0.5s;
 }
 
-.box .content h2 {
+.profile-box .content h2 {
     font-size: 20px;
     color: #FFF;
     font-weight: 500;
@@ -244,12 +244,29 @@ label.checkbtn{
     letter-spacing: 1px;
 }
 
-.box .content h2 span {
+.profile-box .content h2 span {
     font-size: 14px;
     color: #FFF;
     font-weight: 200;
     line-height: 20px;
     letter-spacing: 2px;
+}
+
+/*Student Detail Page*/
+.center{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+    margin-top: 15px;
+}
+
+.center .mobile{
+    width: 276px;
+    height: 580px;
+    background: #000;
+    border-radius: 30px;
+    border: 2px solid rgba(0,0,0,0.3);
 }
 
 
@@ -301,5 +318,13 @@ label.checkbtn{
 
     .box .left{
         height: 200px;
+    }
+
+    .profile-box{
+        height: 400px;
+    }
+
+    .profile-box .imgBx img{
+        opacity: 1;
     }
 }
