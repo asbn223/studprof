@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+
     {% for student in object_list %}
         <a href="{{ student.get_absolute_url }}">
             <div class="profile-box">

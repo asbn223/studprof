@@ -8,7 +8,7 @@ from django.views.generic import ListView, DetailView
 
 
 def home(request):
-    return render(request, 'index.html', context={'title': 'Home'})
+    return render(request, 'home.html', context={'title': 'Home'})
 
 
 # def forms(request):

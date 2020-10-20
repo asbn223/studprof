@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block content %}
+     <span class="note">Note: Column name should be Name, Age, Email, Phone</span>
+    <form method="post" enctype = "multipart/form-data"  action="{% url 'add_person' %}" class="upload-file" >
+        {% csrf_token %}
+        <input type="file" name="filename" accept=".csv">
+        <button type="submit" class="up-btn">Upload</button>
+    </form>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags %}
+                <script>alert('{{ message }}')</script>
+            {% endif %}
+        {% endfor %}
+
+    {% endif %}
+{% endblock %}

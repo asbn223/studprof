@@ -13,31 +13,30 @@ django.setup()
 from demo.models import Student
 
 
-# def add_person(file_name):
-#     base, ext = file_name.split('.')
-#     if ext == 'csv':
-#         BASE_DIR = Path(__file__).resolve().parent
-#         file = os.path.join(BASE_DIR, file_name)
-#         data = pd.read_csv(file)
-#         df = pd.DataFrame(data, columns=['name', 'age', 'email', 'phone'])
-#
-#         print(df)
-#
-#         for row in df.itertuples():
-#             exists = Student.objects.filter(email=row.email).exists()
-#
-#             if not exists:
-#                 ne = Student.objects.create(
-#                     name=row.name,
-#                     age=row.age,
-#                     email=row.email,
-#                     phone=row.phone
-#                 )
-#                 print('save')
-#                 ne.save()
-#
-#     else:
-#         print('Only Accept CSV File')
+def add_person_csv(file_name):
+    existed = 0
+    data = pd.read_csv(file_name)
+    df = pd.DataFrame(data, columns=['name', 'age', 'email', 'phone'])
+
+    print(df)
+
+    for row in df.itertuples():
+        exists = Student.objects.filter(email=row.email).exists()
+
+        if not exists:
+            ne = Student.objects.create(
+                name=row.name,
+                age=row.age,
+                email=row.email,
+                phone=row.phone
+            )
+            print('save')
+            ne.save()
+
+        else:
+            existed = existed + 1
+
+    return existed
 
 
 # if __name__ == "__main__":

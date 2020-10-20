@@ -404,6 +404,61 @@ label.checkbtn{
     border-bottom-right-radius: 4px;
 }
 
+/*Custom Upload Button*/
+
+.up-btn{
+    /*width: 100%;*/
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    background-color: #2ecc71;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #FFF;
+    transition: 0.3s;
+}
+
+.up-box{
+    font-size: 16px;
+    background: #fff;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    width: 350px;
+    outline: none;
+    box-shadow: 5px 5px 10px black;
+}
+
+/*::-webkit-file-upload-button{*/
+/*    color: #fff;*/
+/*    background: #206a5d;*/
+/*    padding: 20px;*/
+/*    border: none;*/
+/*    -webkit-border-radius: 50px;*/
+/*    -moz-border-radius: 50px;*/
+/*    border-radius: 50px;*/
+/*    box-shadow: 1px 0 1px 1px #6b4559;*/
+/*    outline: none;*/
+/*}*/
+
+.upload-file, .note{
+    align-items: center;
+    display: flex;
+    left: 40%;
+    position: relative;
+    top: 10px;
+    margin-bottom: 10px;
+}
+
+.or{
+    left: 50%;
+    display: flex;
+    position: relative;
+    font-size: 20px;
+    margin-top: 25px;
+}
 
 @media screen and (max-width: 952px) {
     label.logo{

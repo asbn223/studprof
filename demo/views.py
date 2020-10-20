@@ -1,12 +1,16 @@
 import os
 
-from django.shortcuts import render
+from django import http
+from django.shortcuts import render, redirect
 from pathlib import Path
 
 import pandas as pd
 
 # Create your views here.
 from demo.models import Student
+from django.contrib import messages
+
+from .script import add_person_csv
 
 
 def demo(request):
@@ -14,23 +18,13 @@ def demo(request):
 
 
 def add_person(request):
-    file = request.FILES
-    print(file['filename'])
-    data = pd.read_csv(file['filename'])
-    df = pd.DataFrame(data, columns=['name', 'age', 'email', 'phone'])
-    print(df)
-
-    for row in df.itertuples():
-        exists = Student.objects.filter(email=row.email).exists()
-
-        if not exists:
-            ne = Student.objects.create(
-                name=row.name,
-                age=row.age,
-                email=row.email,
-                phone=row.phone
-            )
-            print('save')
-            ne.save()
-
-    return render(request, 'demo.html')
+    if request.method == 'POST':
+        file = request.FILES
+        print(file['filename'])
+        existed = add_person_csv(file['filename'])
+        if existed > 0:
+            messages.error(request, str(existed)+" Student already exists.")
+        else:
+            messages.success(request, 'Student has been added')
+        return redirect('home')
+    return http.HttpResponseRedirect('')

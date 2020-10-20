@@ -1,12 +1,15 @@
 {% extends 'index.html' %}
 
 {% block content %}
+
+
+
     <div class="container">
         <div class="box">
             <div class="left"></div>
             <div class="right">
                 <h2>Add Student</h2>
-                <form name="form" enctype = "multipart/form-data" action = "{% url 'add' %}" method = "post">
+                <form name="form" action = "{% url 'add' %}" method = "post">
                     {% csrf_token %}
                     {{ form.as_p }}
 {#                    <input type="text" class="field" placeholder="Your Name" name="name">#}

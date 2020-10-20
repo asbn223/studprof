@@ -1,4 +1,4 @@
-{% url 'student_profile' as student %}
+
 <nav class="navigation">
     <input type="checkbox" id="check">
     <label for="check" class="checkbtn">
@@ -9,15 +9,6 @@
         <li class="menu-items"><a href="{% url 'home' %}">Home</a></li>
         <li class="menu-items"><a href="{% url 'add' %}">Add a Student</a></li>
         <li class="menu-items"><a href="{% url 'student_profile' %}">Students</a></li>
-        {% if request.get_full_path == student  %}
-            <li class="menu-items">
-               <form action="">
-                    <input type="file" accept=".csv">
-                    <button type="submit">Upload</button>
-                </form>
-           </li>
-        {% endif %}
-
     </ul>
 </nav>
 
